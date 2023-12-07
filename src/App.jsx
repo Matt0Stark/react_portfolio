@@ -8,19 +8,19 @@ import AboutPage from './components/AboutPage'
 import Contact from './components/Contact'
 import NotFound from './components/NotFound'
 import Projects from './components/Projects'
+import 'bootstrap/dist/css/bootstrap.css'
+import Welcome from './components/Welcome'
 
 export default function App() {
-
-  const user = "Stark"
 
   return (
     <div >
         <Header />
           <BrowserRouter>
             <Routes>
-              
-              <Route path="/about/*" element={<AboutPage/>} />
-              <Route path="/contact" element={<Contact user={user} />} />
+            <Route path="/" element={<Welcome />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
 
               <Route path="*" element={<NotFound />} />      

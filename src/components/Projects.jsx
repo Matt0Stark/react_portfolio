@@ -6,8 +6,14 @@ import socialApp from "../assets/socialApp.png"
 import svgLogoGen from "../assets/svgLogoGen.png"
 import dayPlanner from "../assets/dayPlanner.png"
 
-export default function Projects () {
+import { Container, Row, Col, Card } from 'react-bootstrap'
 
+export default function Projects() {
+
+    /*
+npm install react-bootstrap 
+npm install bootstrap
+    */
 
 
     const projects = [
@@ -41,7 +47,7 @@ export default function Projects () {
             link: "https://matt0stark.github.io/event_manager/",
             image: dayPlanner
         },
-       
+
     ]
 
 
@@ -51,17 +57,20 @@ export default function Projects () {
         <>
             <h1>Projects</h1>
 
-            <div>
-                {projects.map(item => (
-                    <div key={item.name}>
-                        <a href={item.link} target="_blank">
-                        <h3>{item.name}</h3>
-                        <img src={item.image}/>
-                        </a>
-                       
-                    </div>
-                ))}
-            </div>
+            <Container>
+                <Row className="justify-content-center">
+                    {projects.map(item => (
+                        <Col md={3} className='m-3'>
+                            <Card className='h-100' key={item.name}>
+                                <a href={item.link} target="_blank">
+                                    <Card.Title>{item.name}</Card.Title>
+                                    <Card.Img className='project-img' src={item.image} />
+                                </a>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
 
 
         </>
