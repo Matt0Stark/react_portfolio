@@ -18,53 +18,54 @@ npm install bootstrap
 
     const projects = [
         {
-            name: "Cocktail Generator",
+            name: "Cocktail-Generator",
             link: "https://matt0stark.github.io/cocktail_generator/",
-            image: glass
+            image: glass,
+            id:1
         },
         {
-            name: "Weather App",
+            name: "Weather-App",
             link: "https://matt0stark.github.io/weather_fiveday/",
-            image: weather
+            image: weather,
+            id:2
         },
         {
-            name: "CRUD App",
+            name: "CRUD-App",
             link: "https://drive.google.com/file/d/1xuwMvjB78kL3ai-pfJ2MGTnjaBgNgUtN/view",
-            image: crudApp
+            image: crudApp,
+            id:3
         },
         {
-            name: "Social Media Backend",
+            name: "Social-Media-Backend",
             link: "https://drive.google.com/file/d/1V1-Mz1pEhXuhBiUsfXY2cWPJxFTyQSvd/view",
-            image: socialApp
+            image: socialApp,
+            id:4
         },
         {
-            name: "SVG Logo Generator",
+            name: "SVG-Logo-Generator",
             link: "https://drive.google.com/file/d/1cZDB053oloKWN8KGKWUB2AP0pb6wSIfg/view",
-            image: svgLogoGen
+            image: svgLogoGen,
+            id:5
         },
         {
-            name: "Day Planner",
+            name: "Day-Planner",
             link: "https://matt0stark.github.io/event_manager/",
-            image: dayPlanner
+            image: dayPlanner,
+            id:6
         },
 
     ]
-
-
-
-
     return (
         <>
             <h1>Projects</h1>
-
             <Container>
                 <Row className="justify-content-center">
                     {projects.map(item => (
-                        <Col md={3} className='m-3'>
-                            <Card className='h-100' key={item.name}>
-                                <a href={item.link} target="_blank">
-                                    <Card.Title>{item.name}</Card.Title>
-                                    <Card.Img className='project-img' src={item.image} />
+                        <Col md={3} className='m-3' key={`colum${item.name}`}>
+                            <Card className='h-100' key={item.id}>
+                                <a href={item.link} target="_blank" key={`atag${item.name}`}>
+                                    <Card.Title key={`title${item.name}`}>{item.name}</Card.Title>
+                                    <Card.Img key={`image${item.name}`} className='project-img' src={item.image} />
                                 </a>
                             </Card>
                         </Col>
