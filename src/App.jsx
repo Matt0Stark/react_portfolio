@@ -12,20 +12,24 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Welcome from './components/Welcome'
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState("About")
+  const renderPage = () => {
+    if (currentPage === 'Projects') {
+      return <Projects />;
+    }
+    if (currentPage === 'About') {
+      return <AboutPage />;
+    }
+    if (currentPage === 'Contact') {
+      return <Contact />;
+    }
+  };
+
 
   return (
     <div >
-        <Header />
-          <BrowserRouter>
-            <Routes>
-            <Route path="/" element={<Welcome />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
-
-              <Route path="*" element={<NotFound />} />      
-            </Routes>
-          </BrowserRouter>
+        <Header setCurrentPage={setCurrentPage} />
+          {renderPage()}
         <Footer />
     </div>
   )

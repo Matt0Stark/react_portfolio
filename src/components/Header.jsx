@@ -1,7 +1,6 @@
 
 
-
-export default function Header () {
+export default function Header ({setCurrentPage}) {
     return (
     
         <header >
@@ -9,9 +8,9 @@ export default function Header () {
           <h1>Matt Stark's Portfolio</h1>
           <p>Take a look around</p>
           <nav>
-            <a href="/about">About </a>
-            <a href="/contact">Contact </a>
-            <a href="/projects">Projects </a>
+            <a onClick={()=>setCurrentPage("About")} href="#">About </a>
+            <a onClick={()=>setCurrentPage("Contact")} href="#">Contact </a>
+            <a onClick={()=>setCurrentPage("Projects")} href="#">Projects </a>
           </nav>
         </header>
         
