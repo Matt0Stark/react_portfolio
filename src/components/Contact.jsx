@@ -1,4 +1,8 @@
 import { useState } from "react"
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -11,13 +15,13 @@ export default function Contact({ user }) {
 
 
     function handleInputChange(e) {
-        
+
         console.log(e.target.name)
         console.log(e.target.value)
 
         const clone = {
             ...contactInfo,
-            
+
             [e.target.name]: e.target.value
 
             // [e.target.name]: e.target.value
@@ -27,14 +31,14 @@ export default function Contact({ user }) {
 
     }
 
-    function submitForm(e){ 
+    function submitForm(e) {
         e.preventDefault()
-        if(!contactInfo.name || !contactInfo.email  || !contactInfo.question ){
+        if (!contactInfo.name || !contactInfo.email || !contactInfo.question) {
 
             setError("missing text")
 
-        }else{
-            
+        } else {
+
             setError("success")
             setContactInfo(defaultInfo)
 
@@ -47,21 +51,37 @@ export default function Contact({ user }) {
     return (
 
         <>
-            <h1>this is the Contact page</h1>
+            <h1>Contact page</h1>
+         
+                <Form onSubmit={submitForm}>
 
-            <form onSubmit={submitForm}>
-                
-                <input type="text" name="name" value={contactInfo.name} onChange={handleInputChange} />
+                    <Row>
+                  
+                        <Col className="form-field">
+                         <label>Name:</label>
+                            <input type="text" name="name" value={contactInfo.name} onChange={handleInputChange} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="form-field">
+                        <label>Email:</label>
+                            <input type="email" name="email" value={contactInfo.email} onChange={handleInputChange} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="form-field">
+                        <label>Question:</label>
+                            <textarea name="question" value={contactInfo.question} onChange={handleInputChange} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Button variant="primary">submit info</Button>
+                        </Col>
+                    </Row>
 
-                <input type="email" name="email" value={contactInfo.email} onChange={handleInputChange} />
-
-                <textarea name="question" value={contactInfo.question} onChange={handleInputChange} />
-
-                <button>submit info</button>
-
-
-            </form>
-
+                </Form>
+            
             <p>{error}</p>
         </>
 
