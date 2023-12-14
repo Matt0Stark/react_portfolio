@@ -19,7 +19,7 @@ npm install bootstrap
     const projects = [
         {
             name: "WoR tcg",
-            link: "",
+            link: "https://warlordsofravegea-c36fa2705fc4.herokuapp.com/",
             image: wortcg,
             id:1
         },
